@@ -37,3 +37,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 1.把列表中的每一项改为router-link，同时提供唯一的id
 2.创建新闻详情的组件界面 NewInfo.vue
 3.在路由模块，将新闻详情的 路由地址和组件页面
+
+### 阉割图片模块
+由于顶部滑动栏在vue-cli3无法解决，只能阉割此功能
