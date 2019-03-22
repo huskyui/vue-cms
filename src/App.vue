@@ -42,6 +42,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin-top: 40px;
+	margin-bottom: 50px;
 	background-color: white;
 	overflow-x: hidden;
 }

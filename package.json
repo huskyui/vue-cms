@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "mint-ui": "^2.2.13",
+    "moment": "^2.24.0",
     "vue": "^2.6.6",
     "vue-axios": "^2.1.4"
   },
@@ -30,7 +31,8 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {"no-console": "off",
+    "rules": {
+      "no-console": "off",
       "no-mixed-spaces-and-tabs": 0
     },
     "parserOptions": {
