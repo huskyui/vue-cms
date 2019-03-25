@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <!-- 顶部Header区域 -->
-    <mt-header fixed title="黑马程序员vue项目"></mt-header>
+    <mt-header fixed title="黑马程序员vue项目">
+
+			<span @click="goBack" slot="left" v-if="homeFlag">
+    		<mt-button icon="back">返回</mt-button>
+  		</span>
+		</mt-header>
     <!-- 中间路由 router-view区域 -->
 		<transition>
     	<router-view></router-view>
@@ -32,7 +37,25 @@
 
 <script>
 export default {
-  name: 'app',
+	name: 'app',
+	data() {
+		return {
+		}
+	},
+	computed: {
+		'homeFlag':function(){
+			if(this.$route.path==='/home'){
+				return false;
+			}else{
+				return true;
+			}
+		}
+	},
+	methods:{
+		goBack(){
+			this.$router.go(-1);
+		}
+	}
 }
 </script>
 
