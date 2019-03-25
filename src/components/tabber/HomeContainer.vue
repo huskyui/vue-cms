@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- 轮播图 使用轮播图组件-->
-        <carousel-figure :info="carouseList"></carousel-figure>
+        <carousel-figure :info="carouseList" :isFull="false"></carousel-figure>
 
         <!-- 九宫格 -->
         <ul class="mui-table-view mui-grid-view mui-grid-9">

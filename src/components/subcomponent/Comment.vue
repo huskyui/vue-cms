@@ -22,7 +22,7 @@
 <script>
 import {Toast} from 'mint-ui'
 export default {
-    props:['id'],
+    props:['id','type'],
     data() {
         return {
             pageIndex: 1,
@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         getComment(){
-            this.axios.get("api/getCommentList/"+this.id+"?pageIndex="+this.pageIndex)
+            this.axios.get("api/getCommentList/"+this.id+"?pageIndex="+this.pageIndex+"&type="+this.type)
             .then((response)=>{
                 if(response.data.success){
                     this.commentList = this.commentList.concat(response.data.data);
@@ -47,7 +47,7 @@ export default {
                     'foreignId': this.id,
                     'userId': -1,
                     'content': this.content,
-                    'type': 0,
+                    'type': this.type,
                 }
             }).then((response)=>{
                 if(response.data.success){

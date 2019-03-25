@@ -7,6 +7,7 @@ import NewsList from './components/news/NewsList.vue'
 import NewsInfo from './components/news/NewsInfo.vue'
 import GoodsList from './components/goods/GoodsList.vue'
 import GoodsInfo from './components/goods/GoodsInfo.vue'
+import GoodsComment from './components/goods/GoodsComment.vue'
 
 var router = new VueRouter({
     routes:[//配置路由规则
@@ -19,6 +20,7 @@ var router = new VueRouter({
         {path: '/home/newInfo/:id',component: NewsInfo},
         {path: '/home/goodslist',component: GoodsList},
         {path: '/home/goodsInfo/:id',component: GoodsInfo},
+        {path: '/home/goodsComment/:id',component:GoodsComment}
     ],
     linkActiveClass:'mui-active'//覆盖默认路由高亮的
 })

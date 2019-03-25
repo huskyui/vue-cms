@@ -12,7 +12,10 @@ import axios from './http.js'
 import VueAxios from 'vue-axios'
 import './lib/css/animate.css'
 import moment from 'moment'
- 
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css';
+
+Vue.use(ElementUI)
 Vue.use(VueAxios, axios)
 Vue.use(Mint);
 // 安装路由

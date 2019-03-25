@@ -9,7 +9,7 @@
        <div class="content" v-html="newsInfo.content"></div>
 
        <!-- 评论区域 -->
-       <comment-box :id="id"></comment-box>
+       <comment-box :id="id" :type="0"></comment-box>
     </div>
 </template>
 
@@ -20,7 +20,8 @@ export default {
     data() {
         return {
             id : this.$route.params.id,
-            newsInfo:''
+            newsInfo:'',
+            type: 0
         }
     },
     created(){
