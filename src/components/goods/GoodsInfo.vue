@@ -23,7 +23,7 @@
                     </p>
                     <p class="justify">
                         <mt-button type="primary" size="small">立即购买</mt-button>
-                        <mt-button type="danger" size="small" @click="flag=!flag">加入购物车</mt-button>
+                        <mt-button type="danger" size="small" @click="addCar">加入购物车</mt-button>
                     </p>
                 </div>
             </div>
@@ -103,6 +103,10 @@ export default {
         },
         getSelectedCount(count){
             this.num = count;
+        },
+        addCar(){
+            var goodsInfo = {id:this.id,count:this.num};
+            this.$store.commit("add",goodsInfo);
         }
 
 

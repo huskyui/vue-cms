@@ -49,3 +49,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     props更多是父子组件间，parent->child
     data是一个组件内
     vuex可以类比于一个公共管理的仓库
+###vuex
+    数据都在state上
+    获取数据，可以使用this.$store.state.XXX
+    如果要修改数据，使用mutations提供的方法，需要通过this.$store.commit(XXXfun,唯一的参数);
+    如果需要对数据进行封装，那么我们就需要使用getters
