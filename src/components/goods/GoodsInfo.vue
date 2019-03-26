@@ -1,5 +1,9 @@
 <template>
     <div>
+        <transition
+        >
+        <div class="ball" v-show="flag"></div>
+        </transition>
        <div class="mui-card">
             <div class="mui-card-content">
                 <div class="mui-card-content-inner">
@@ -15,11 +19,11 @@
                         市场价：<del>￥{{goodsInfo.marketPrice}}</del>&nbsp;&nbsp;销售价:<span class="now_price">￥{{goodsInfo.sellPrice}}</span>
                     </p>
                     <p>购买数量：
-                        <number-box ref="numberbox"></number-box>
+                        <number-box ref="numberbox" @getCount="getSelectedCount" :max="goodsInfo.inQuality"></number-box>
                     </p>
                     <p class="justify">
                         <mt-button type="primary" size="small">立即购买</mt-button>
-                        <mt-button type="danger" size="small">加入购物车</mt-button>
+                        <mt-button type="danger" size="small" @click="flag=!flag">加入购物车</mt-button>
                     </p>
                 </div>
             </div>
@@ -49,6 +53,8 @@ export default {
               carouseList: [],
               id: this.$route.params.id,
               goodsInfo: '',
+              flag: false,
+              num: 1
           }
       },  
       components:{
@@ -93,9 +99,14 @@ export default {
             })
         },
         goComment(){
-            this.$router.push({path: "/home/goodsComment/1"});
+            this.$router.push({path: "/home/goodsComment/"+this.id});
+        },
+        getSelectedCount(count){
+            this.num = count;
         }
-      }
+
+
+    }
 }
 </script>
 <style>
@@ -103,5 +114,15 @@ export default {
     display:flex;
     justify-content: space-between;
     margin: 0 10%;
+}
+.ball{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+    z-index: 99;
+    top:395px;
+    left:185px;
 }
 </style>

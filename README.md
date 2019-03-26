@@ -44,3 +44,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ###尝试在手机上进行项目的预览和调试
     1.手机正常运行
     2.保证手机和开发的电脑处于同一个wifi中
+
+###props data vuex 区别
+    props更多是父子组件间，parent->child
+    data是一个组件内
+    vuex可以类比于一个公共管理的仓库

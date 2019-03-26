@@ -1,5 +1,5 @@
 <template>
-  <el-input-number v-model="num" @change="handleChange" :min="1" label="描述文字"></el-input-number>
+  <el-input-number v-model="num" @change="handleChange" :min="1"  :max="max" label="描述文字"></el-input-number>
 </template>
 <script>
   export default {
@@ -8,9 +8,10 @@
         num: 1
       };
     },
+    props:['max'],
     methods: {
       handleChange(value) {
-        console.log(value);
+        this.$emit("getCount",parseInt(value))
       }
     }
   };

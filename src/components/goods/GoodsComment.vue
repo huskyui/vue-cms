@@ -1,6 +1,6 @@
 <template>
     <div>
-        <comment :id="1" :type="1" ></comment>
+        <comment :id="id" :type="1" ></comment>
     </div>
 </template>
 <script>
