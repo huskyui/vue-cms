@@ -85,5 +85,8 @@ export default {
 .v-leave-active{
 	transition: all 0.5s ease;
 }
+.mint-header.is-fixed {
+	z-index: 2 !important;
+}
 
 </style>

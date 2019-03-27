@@ -54,7 +54,7 @@ export default {
               id: this.$route.params.id,
               goodsInfo: '',
               flag: false,
-              num: 1
+              num: 1,
           }
       },  
       components:{
@@ -105,7 +105,7 @@ export default {
             this.num = count;
         },
         addCar(){
-            var goodsInfo = {id:this.id,count:this.num};
+            var goodsInfo = {id:this.id,count:this.num,flag:false,price:this.goodsInfo.sellPrice,imgUrl:this.goodsInfo.imgUrl,title:this.goodsInfo.title};
             this.$store.commit("add",goodsInfo);
         }
 
