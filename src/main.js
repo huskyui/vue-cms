@@ -16,6 +16,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
 import vuex from 'vuex'
 import store from './store.js'
+
 Vue.use(ElementUI)
 Vue.use(VueAxios, axios)
 Vue.use(Mint)

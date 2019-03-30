@@ -101,7 +101,6 @@ h1{
 .calculate{
     display: flex;
     justify-content: space-between;
-    align-item:center;
 }
 .red{
     color:red;

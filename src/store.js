@@ -3,9 +3,21 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 var store = new Vuex.Store({
     state: { //this.$store.state.XXX
-        car:JSON.parse(localStorage.getItem('car'))||[]
+        car:JSON.parse(localStorage.getItem('car'))||[],
+        token: localStorage.getItem('token')||'',
+        userId: localStorage.getItem('userId')||'',
+        isLogin: false,
     },
     mutations: {//this.$store.commit('方法名‘，’唯一参数‘)
+        login(state,userInfo){
+            state.token = userInfo.token;
+            state.userId = userInfo.userId;
+            localStorage.setItem('token',userInfo.token);
+            localStorage.setItem('userId',userInfo.userId);
+        },
+        setLogin(state,flag){
+            state.isLogin = flag;
+        },
         add(state,goodsInfo){
             var flag = false;
             state.car.some(item => {
@@ -78,6 +90,12 @@ var store = new Vuex.Store({
                 }
             })
             return c;
+        },
+        getToken(state){
+            return state.token;
+        },
+        getUserId(state){
+            return state.userId;
         }
     },
 })

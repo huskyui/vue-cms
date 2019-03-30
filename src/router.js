@@ -8,19 +8,25 @@ import NewsInfo from './components/news/NewsInfo.vue'
 import GoodsList from './components/goods/GoodsList.vue'
 import GoodsInfo from './components/goods/GoodsInfo.vue'
 import GoodsComment from './components/goods/GoodsComment.vue'
+import UserInfo from './components/member/UserInfo.vue'
+import login from './components/member/Login.vue'
+import register from './components/member/Register.vue'
 
 var router = new VueRouter({
     routes:[//配置路由规则
         {path: '/',redirect:'/home'},
         {path: '/home',component: HomeContainer},
         {path: '/member',component: MemberContainer},
+        {path: '/member/userinfo',component:UserInfo},
+        {path: '/member/login',component:login},
+        {path: '/member/register',component:register},
         {path: '/shopcar',component: ShopCarContainer},
         {path: '/search',component: SearchContainer},
         {path: '/home/newsList',component: NewsList},
         {path: '/home/newInfo/:id',component: NewsInfo},
         {path: '/home/goodslist',component: GoodsList},
         {path: '/home/goodsInfo/:id',component: GoodsInfo},
-        {path: '/home/goodsComment/:id',component:GoodsComment}
+        {path: '/home/goodsComment/:id',component:GoodsComment},
     ],
     linkActiveClass:'mui-active'//覆盖默认路由高亮的
 })
