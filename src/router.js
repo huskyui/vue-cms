@@ -11,6 +11,7 @@ import GoodsComment from './components/goods/GoodsComment.vue'
 import UserInfo from './components/member/UserInfo.vue'
 import login from './components/member/Login.vue'
 import register from './components/member/Register.vue'
+import OrderList from './components/goods/OrderList.vue'
 
 var router = new VueRouter({
     routes:[//配置路由规则
@@ -27,6 +28,7 @@ var router = new VueRouter({
         {path: '/home/goodslist',component: GoodsList},
         {path: '/home/goodsInfo/:id',component: GoodsInfo},
         {path: '/home/goodsComment/:id',component:GoodsComment},
+        {path: '/member/orderList',component:OrderList}
     ],
     linkActiveClass:'mui-active'//覆盖默认路由高亮的
 })

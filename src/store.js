@@ -51,6 +51,16 @@ var store = new Vuex.Store({
             })
             localStorage.setItem('car',JSON.stringify(state.car));
         },
+        removeBuyedGoods(state){
+            var carList = [];
+            state.car.forEach(item=>{
+                if(item.flag!==true){
+                    carList.push(item);
+                }
+            })
+            state.car = carList;
+            localStorage.setItem('car',JSON.stringify(state.car))
+        },
         updateFlag(state,info){
             state.car.some(item=>{
                 if(item.id == info.id){
@@ -96,6 +106,19 @@ var store = new Vuex.Store({
         },
         getUserId(state){
             return state.userId;
+        },
+        getGoodsChecked(state){
+            var goodsList = [];
+            state.car.forEach(item=>{
+                if(item.flag==true){
+                    var goods = {
+                        goodsId: parseInt(item.id),
+                        count: item.count
+                    }
+                    goodsList.push(goods);
+                }
+            })
+            return goodsList;
         }
     },
 })

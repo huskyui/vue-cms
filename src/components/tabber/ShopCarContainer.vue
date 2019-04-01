@@ -25,13 +25,14 @@
                        <p>总计(不含运费)</p>
                        <p>已勾选商品<span class="red">{{this.$store.getters.getGoodsCount}}</span>件，总价<span class="red">￥{{this.$store.getters.getGoodsTotal}}</span></p>
                    </div>
-                   <mt-button type="danger">去结算</mt-button>
+                   <mt-button type="danger" @click="buy">去结算</mt-button>
                 </div>
             </div>
 		</div>
     </div>
 </template>
 <script>
+import {Toast} from 'mint-ui'
 import numbox from '../subcomponent/NumberBoxShopCar.vue';
 import switchbox from '../subcomponent/Switch.vue'
 export default {
@@ -47,6 +48,25 @@ export default {
     methods: {
         remove(id){
             this.$store.commit("removeFromCar",id);
+        },
+        buy(){
+            if(this.$store.getters.getGoodsTotal===0){
+                Toast('还未购买，请勿点击');
+                return;
+            }
+            var goodsList = this.$store.getters.getGoodsChecked;
+            var userId = this.$store.getters.getUserId;
+            this.axios.post('order/addOrder/'+userId, 
+                        JSON.stringify(goodsList),
+                {headers: {'Content-Type': 'application/json'}}
+            ).then(response=>{
+                if(response.data.success===true){
+                    Toast("购买成功");
+                    this.$store.commit('removeBuyedGoods');
+                    this.goodsList=this.$store.getters.getCar;
+                }
+            })
+
         }
     },
 }

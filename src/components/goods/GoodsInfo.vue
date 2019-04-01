@@ -22,7 +22,7 @@
                         <number-box ref="numberbox" @getCount="getSelectedCount" :max="goodsInfo.inQuality"></number-box>
                     </p>
                     <p class="justify">
-                        <mt-button type="primary" size="small">立即购买</mt-button>
+                        <mt-button type="primary" size="small" @click="buy">立即购买</mt-button>
                         <mt-button type="danger" size="small" @click="addCar">加入购物车</mt-button>
                     </p>
                 </div>
@@ -107,6 +107,17 @@ export default {
         addCar(){
             var goodsInfo = {id:this.id,count:this.num,flag:false,price:this.goodsInfo.sellPrice,imgUrl:this.goodsInfo.imgUrl,title:this.goodsInfo.title};
             this.$store.commit("add",goodsInfo);
+        },
+        buy(){
+            var userId = this.$store.getters.getUserId;
+            var goodsList = [{'goodsId':this.id,'count':this.num}];
+            this.axios.post('order/addOrder/'+userId, JSON.stringify(goodsList) ,
+                {headers: {'Content-Type': 'application/json'}}
+            ).then(response=>{
+                if(response.data.success===true){
+                    Toast("购买成功");
+                }
+            })
         }
 
 

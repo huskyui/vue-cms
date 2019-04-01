@@ -5,11 +5,11 @@
             <router-link to="/member/register" tag="span">注册</router-link>
         </div>
         <div class="cellbox">
-            <mt-cell title="用户详情" is-link @click.native="goPage('/member/userinfo')">
+            <!-- <mt-cell title="用户详情" is-link @click.native="goPage('/member/userinfo')">
+            </mt-cell> -->
+            <mt-cell title="我的订单" is-link @click.native="goPage('/member/orderList')">
             </mt-cell>
-            <mt-cell title="我的订单" is-link>
-            </mt-cell>
-            <mt-cell title="关于我们" is-link>
+            <mt-cell title="关于我们" is-link >
             </mt-cell>
         </div>
     </div>   
