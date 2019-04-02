@@ -18,6 +18,11 @@ var store = new Vuex.Store({
         setLogin(state,flag){
             state.isLogin = flag;
         },
+        logout(state){
+            state.token = "";
+            state.userId = "";
+            state.isLogin = false;
+        },
         add(state,goodsInfo){
             var flag = false;
             state.car.some(item => {

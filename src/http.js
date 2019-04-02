@@ -19,6 +19,7 @@ axios.interceptors.request.use(
 // http response 拦截器
 axios.interceptors.response.use(
     response => {
+      console.log(response)
       if(response.data.success === false){
         router.push('/member/login');
       }

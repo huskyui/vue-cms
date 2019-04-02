@@ -2,7 +2,7 @@
     <div>
         <ul class="mui-table-view">
 				<li class="mui-table-view-cell mui-media" v-for="item in orderlist" :key="item.id">
-					<router-link  :to="'/orderInfo/'+item.id">
+					<router-link  :to="'/member/orderInfo/'+item.id">
 						<div class="mui-media-body">
 							<h1>{{item.id}}</h1>
 							<p class='mui-ellipsis'>
@@ -11,9 +11,6 @@
 						</div>
 					</router-link>
 				</li>
-                
-				
-
 			</ul>
     </div>
 </template>

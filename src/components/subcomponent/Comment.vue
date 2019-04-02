@@ -42,10 +42,14 @@ export default {
             })
         },
         addComment(){
+            var userId = this.$store.getters.getUserId;
+            if(userId===""){
+                userId = -1;
+            }
             this.axios.get('api/addComment',{
                 params:{
                     'foreignId': this.id,
-                    'userId': -1,
+                    'userId': userId,
                     'content': this.content,
                     'type': this.type,
                 }

@@ -4,6 +4,9 @@
             <router-link to="/member/login" tag="span">登录</router-link>
             <router-link to="/member/register" tag="span">注册</router-link>
         </div>
+        <div class="jumpbox2" v-if="isLogin">
+            <span @click="logout">登出</span>
+        </div>
         <div class="cellbox">
             <!-- <mt-cell title="用户详情" is-link @click.native="goPage('/member/userinfo')">
             </mt-cell> -->
@@ -24,6 +27,12 @@ export default {
     methods: {
         goPage(url){
             this.$router.push(url);
+        },
+        logout(){
+            localStorage.removeItem("userId");
+            localStorage.removeItem("token");
+            this.$store.commit("logout");
+            this.$router.push("/")
         }
     },
 
