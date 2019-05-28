@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- 顶部Header区域 -->
-    <mt-header fixed title="黑马程序员vue项目">
+    <mt-header fixed title="商城项目">
 
 			<span @click="goBack" slot="left" v-if="homeFlag">
     		<mt-button icon="back">返回</mt-button>

@@ -12,8 +12,6 @@
             </mt-cell> -->
             <mt-cell title="我的订单" is-link @click.native="goPage('/member/orderList')">
             </mt-cell>
-            <mt-cell title="关于我们" is-link >
-            </mt-cell>
         </div>
     </div>   
 </template>

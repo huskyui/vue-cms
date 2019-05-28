@@ -7,7 +7,7 @@
             <form class="mui-input-group">
                 <div class="mui-input-row">
                     <label>用户名</label>
-                    <input type="text" v-model="username" @change="isExist">
+                    <input type="text" v-model="username">
                 </div>
                 <div class="mui-input-row">
                     <label>密码</label>
@@ -35,6 +35,8 @@
                 v-model="pickerVisible"
                 type="date"
                 ref="datePicker"
+                :startDate="startDate"
+                :endDate="endDate"
                 year-format="{value} 年"
                 month-format="{value} 月"
                 date-format="{value} 日"
@@ -55,15 +57,35 @@ export default {
             email: '',
             birthday: '',
             pickerValue: '',
-            pickerVisible: ''
+            pickerVisible: '',
+            startDate: new Date('1980-1-1'),
+            endDate: new Date()
         }
     },
     methods: {
         register(){
+             var nameReg=/^[a-zA-Z0-9]{5,10}$/;   
+             if(!nameReg.test(this.username)){
+                 Toast("用户名需要在6-15位之间");
+                 return;
+             } 
+             var passwordReg = /^[a-zA-Z0-9]{5,10}$/;  
+             if(!passwordReg.test(this.password)){
+                 Toast("密码需要是6-10位之间");
+                 return;
+             }
+             var emailReg=/^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/;
+             if(!emailReg.test(this.email)){
+                 Toast("电子邮箱格式不对");
+                 return;
+             }
+
+
             if(this.password != this.repassword){
                 Toast("两次密码输入不一样");
                 return;
             }
+            this.isExist();
             this.axios.get('api/register',{
                 params: {
                     username: this.username,
